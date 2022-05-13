@@ -1,0 +1,21 @@
+name: "security pocs CI workflow"
+
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+
+  ubuntu-1804-job:
+    name: "jwt-null-signature-vulnerable-app on ubuntu-18.04"
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status  
+    - name: "build"
+      run: |
+        git clone https://github.com/DataDog/security-labs-pocs.git     
+        ls -lai
+        cd security-labs-pocs
