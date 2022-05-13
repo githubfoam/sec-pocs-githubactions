@@ -7,6 +7,7 @@ on:
 
 jobs:
 
+# https://github.com/DataDog/security-labs-pocs/tree/main/proof-of-concept-exploits/jwt-null-signature-vulnerable-app
   ubuntu-1804-job:
     name: "jwt-null-signature-vulnerable-app on ubuntu-18.04"
     runs-on: ubuntu-18.04
@@ -17,5 +18,11 @@ jobs:
     - name: "build"
       run: |
         git clone https://github.com/DataDog/security-labs-pocs.git     
-        ls -lai
         cd security-labs-pocs
+        proof-of-concept-exploits/jwt-null-signature-vulnerable-app/
+        ls -lai
+        docker build . -t vulnerable-app
+        docker image ls
+        docker run -p 8080:8080 --name vulnerable-app --rm vulnerable-app
+        docker container ls 
+
