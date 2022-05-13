@@ -23,6 +23,6 @@ jobs:
         ls -lai
         docker build . -t vulnerable-app
         docker image ls
-        docker run -p 8080:8080 --name vulnerable-app --rm vulnerable-app
-        docker container ls 
+        # docker run -p 8080:8080 --name vulnerable-app --rm vulnerable-app
+        # docker container ls 
 
