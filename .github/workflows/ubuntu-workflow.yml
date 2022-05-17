@@ -20,8 +20,7 @@ jobs:
     - name: "build"
       run: |
         git clone https://github.com/DataDog/security-labs-pocs.git     
-        cd security-labs-pocs
-        cd proof-of-concept-exploits/jwt-null-signature-vulnerable-app/
+        cd security-labs-pocs/proof-of-concept-exploits/jwt-null-signature-vulnerable-app/
         ls -lai
         docker build . -t vulnerable-app
         docker image ls
